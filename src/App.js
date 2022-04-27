@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import backgroundVideo from './image/production ID_3843103.mp4';
+import backgroundVideo from './images/production ID_3843103.mp4';
 import Home from './pages/Home';
 import Favorites from './pages/Favorites';
 import SearchBar from './components/SearchBar';
