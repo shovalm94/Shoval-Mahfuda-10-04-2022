@@ -16,8 +16,7 @@ const FiveDaysWeather = ({ date, dayIcon, maxTemp }) => {
       <br />
       {maxTemp}°C
       <br />
-      <img
-        style={{ width: '80px', height: '50px' }}
+      <img className='weather-icon'
         src={`https://developer.accuweather.com/sites/default/files/${dayIcon}-s.png`}
         alt='Weather icon'
       />
