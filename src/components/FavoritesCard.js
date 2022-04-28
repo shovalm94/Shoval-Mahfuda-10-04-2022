@@ -23,8 +23,7 @@ const FavoritesCard = ({ data }) => {
       <br />
       {data.data[0].Temperature.Metric.Value}°C
       <br />
-      <img
-        style={{ width: '80px', height: '50px' }}
+      <img className='weather-icon'
         src={`https://developer.accuweather.com/sites/default/files/${icon}-s.png`}
         alt='Weather icon'
       />
