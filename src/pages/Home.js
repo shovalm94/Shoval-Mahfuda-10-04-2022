@@ -77,7 +77,7 @@ function Home() {
               marginTop: '2rem',
             }}
           >
-            <h2>{city}</h2>
+            <h2 style={{ fontFamily: 'Montserrat' }}>{city}</h2>
             <span>{tempMetric}°C</span>
           </div>
 
