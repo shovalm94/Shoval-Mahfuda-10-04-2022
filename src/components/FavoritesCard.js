@@ -18,7 +18,7 @@ const FavoritesCard = ({ data }) => {
     navigate('/');
   };
   return (
-    <div className='card-box' onClick={handleClick}>
+    <div className='card-fav-box' onClick={handleClick}>
       {data.city}
       <br />
       {data.data[0].Temperature.Metric.Value}°C
