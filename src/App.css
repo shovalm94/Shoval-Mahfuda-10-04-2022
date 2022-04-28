@@ -89,6 +89,12 @@
  
 }
 
+.weather-icon{
+  width: 120px;
+  height: 70px;
+  margin: 20px;
+}
+
 .card-fav-box{
   
   width: 20%;
