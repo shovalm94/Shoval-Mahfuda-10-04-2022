@@ -89,6 +89,22 @@
  
 }
 
+.card-fav-box{
+  
+  width: 20%;
+  height: 160px;
+  margin: 5px ;
+  text-align: center;
+  align-items: center;
+    background-color: rgb(232 198 209 / 66%);
+    box-shadow: 3px 0px 8px rgb(215 105 141 / 69%);
+    transition: transform 0.3s;
+}
+
+.card-fav-box:hover{
+    transform: translateY(-1.5rem) scale(1.03);
+}
+
 .days-list{
       display: flex;
       flex-direction: row;
