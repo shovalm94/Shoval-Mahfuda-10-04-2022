@@ -1,15 +1,10 @@
 import { React, useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Favorite from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { IconButton } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import FiveDaysWeatherList from '../components/FiveDaysWeatherList';
 import { CurrentCityAction } from '../actions/CurrentCityAction';
-import { AddFavoriteAction } from '../actions/AddFavoriteAction';
-import { RemoveFavoriteAction } from '../actions/RemoveFavoriteAction';
-import { RemoveFavStateAction } from '../actions/RemoveFavStateAction';
 import SearchBar from '../components/SearchBar';
+import AddRemoveFavBtn from '../components/AddRemoveFavBtn';
 
 function Home() {
   const dispatch = useDispatch();
@@ -20,38 +15,15 @@ function Home() {
   const GetFavReducer = useSelector((state) => state.GetFavReducer);
   const { data } = GetFavReducer;
 
-  let FavExist;
-  const [isFavorite, setIsFavorite] = useState(false);
+  let isFavCity = false;
+
+  if (data.some((x) => x.id === id)) {
+    isFavCity = true;
+  }
 
   useEffect(() => {
-    if (!GetFavReducer) {
-      dispatch(CurrentCityAction(id, city));
-    }
-
-    FavExist = data.find((x) => x.id === id);
-    if (FavExist) {
-      setIsFavorite(true);
-    } else {
-      setIsFavorite(false);
-    }
-  }, []);
-
-  const handleClick = (e) => {
-    FavExist = data.find((x) => x.id === id);
-    if (!data.length) {
-      dispatch(AddFavoriteAction(id, city));
-      setIsFavorite(true);
-    } else {
-      if (FavExist) {
-        dispatch(RemoveFavoriteAction(id));
-        dispatch(RemoveFavStateAction(id));
-        setIsFavorite(false);
-      } else {
-        dispatch(AddFavoriteAction(id, city));
-        setIsFavorite(true);
-      }
-    }
-  };
+    dispatch(CurrentCityAction(id, city));
+  }, [id]);
 
   return (
     <div>
@@ -82,17 +54,7 @@ function Home() {
           </div>
 
           <div>
-            <IconButton
-              aria-label='favorite'
-              component='span'
-              onClick={handleClick}
-            >
-              {isFavorite ? (
-                <Favorite style={{ color: ' red ' }} />
-              ) : (
-                <FavoriteBorderIcon />
-              )}
-            </IconButton>
+            <AddRemoveFavBtn id={id} city={city} isFavCity={isFavCity} />
           </div>
         </div>
         <div className='box-footer'>
