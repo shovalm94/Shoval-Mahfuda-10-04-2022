@@ -17,9 +17,7 @@ function Home() {
 
   let isFavCity = false;
 
-  if (data.some((x) => x.id === id)) {
-    isFavCity = true;
-  }
+isFavCity = data.some((x) => x.id === id);
 
   useEffect(() => {
     dispatch(CurrentCityAction(id, city));
