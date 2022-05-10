@@ -20,8 +20,10 @@ function Home() {
   isFavCity = data.some((x) => x.id === id);
 
   useEffect(() => {
-    dispatch(CurrentCityAction(id, city));
-  }, [id]);
+    if (city == 'Tel Aviv') {
+      dispatch(CurrentCityAction(id, city));
+    }
+  }, []);
 
   return (
     <div>
